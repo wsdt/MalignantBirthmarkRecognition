@@ -40,12 +40,12 @@ object Trainer {
     var LABEL_GENERATOR_MAKER = ParentPathLabelGenerator()
     var PATH_FILTER = BalancedPathFilter(RAND_NUM_GEN, ALLOWED_FORMATS, LABEL_GENERATOR_MAKER)
 
-    private const val EPOCH = 20 //5
+    private const val EPOCH = 10 //5
     private const val BATCH_SIZE = 16
     private const val TRAIN_SIZE = 85
-    private const val NUM_POSSIBLE_LABELS = 3
+    private const val NUM_POSSIBLE_LABELS = 2
 
-    private const val SAVING_INTERVAL = 120 //100
+    private const val SAVING_INTERVAL = 100 //100
 
     var DATA_PATH = "resources"
     val TRAIN_FOLDER = "$DATA_PATH/train_both"

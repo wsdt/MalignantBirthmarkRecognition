@@ -79,11 +79,6 @@ class MyHomePageState extends State<MyHomePage> {
                                       ": " +
                                       this.formatPrecision(result[2]["confidence"]))
                                 ]),
-                                Row(children: <Widget>[
-                                  Text(result[3]["name"] +
-                                      ": " +
-                                      this.formatPrecision(result[3]["confidence"]))
-                                ]),
                               ],
                             ),
                           ),

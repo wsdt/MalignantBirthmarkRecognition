@@ -22,14 +22,12 @@ object Predictor {
             val selectedFile = File("$DATA_PATH/uploaded/$filename.jpg")
             val output: INDArray = vg16ForCat.detectType(selectedFile)
 
-            print("CONFIDENCE:\nBASAL_CELL_CARCINOMA: " + output.getDouble(0) +
-                    "\nMELANOMA: " + output.getDouble(1) +
-                    "\nSQUAMOUS_CELL_CARCINOMA: " + output.getDouble(2) + "\n")
+            print("CONFIDENCE:\nBenign: " + output.getDouble(0) +
+                    "\nMalignant: " + output.getDouble(1) + "\n")
 
             return listOf(
-                    BasalCellCarcinoma(output.getDouble(0)),
-                    Melanoma(output.getDouble(1)),
-                    SquamousCellCarcinoma(output.getDouble(2)),
+                    Benign(output.getDouble(0)),
+                    Malignant(output.getDouble(1)),
                     NotKnown(0.0)
             )
 
