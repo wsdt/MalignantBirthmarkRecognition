@@ -58,7 +58,7 @@ class VG16 {
 
     companion object {
 //        private val log = org.slf4j.LoggerFactory.getLogger(Trainer::class.java)
-        private val TRAINED_PATH_MODEL = Trainer.DATA_PATH + "/saved/modelIteration_100_epoch_4.zip"
+        private val TRAINED_PATH_MODEL = Trainer.DATA_PATH + "/saved/modelIteration_100_epoch_0.zip"
         private var computationGraph: ComputationGraph? = null
 
         @Throws(IOException::class)

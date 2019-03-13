@@ -1,15 +1,14 @@
 package wsdt.ml.predict
 
 import org.nd4j.linalg.api.ndarray.INDArray
+import wsdt.ml.train.Trainer.DATA_PATH
 import java.io.File
 import java.io.IOException
-
-import wsdt.ml.train.Trainer.DATA_PATH
 
 
 object Predictor {
 
-    private const val THRESHOLD_ACCURACY = 0.50
+    // private const val THRESHOLD_ACCURACY = 0.50
 
     @Throws(Exception::class)
     fun predict(filename: String, basePath: String = "resources"): List<BirthmarkType> {

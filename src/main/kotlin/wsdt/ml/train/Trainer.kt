@@ -9,7 +9,6 @@ import org.datavec.image.loader.BaseImageLoader
 import org.datavec.image.loader.NativeImageLoader
 import org.datavec.image.recordreader.ImageRecordReader
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator
-import org.deeplearning4j.eval.Evaluation
 import org.deeplearning4j.nn.api.OptimizationAlgorithm
 import org.deeplearning4j.nn.conf.Updater
 import org.deeplearning4j.nn.conf.layers.OutputLayer
@@ -20,17 +19,14 @@ import org.deeplearning4j.nn.weights.WeightInit
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener
 import org.deeplearning4j.util.ModelSerializer
 import org.deeplearning4j.zoo.PretrainedType
-import org.deeplearning4j.zoo.ZooModel
 import org.deeplearning4j.zoo.model.VGG16
 import org.nd4j.linalg.activations.Activation
-import org.nd4j.linalg.dataset.DataSet
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator
 import org.nd4j.linalg.dataset.api.preprocessor.VGG16ImagePreProcessor
 import org.nd4j.linalg.lossfunctions.LossFunctions
-
 import java.io.File
 import java.io.IOException
-import java.util.Random
+import java.util.*
 
 object Trainer {
 
@@ -40,7 +36,7 @@ object Trainer {
     var LABEL_GENERATOR_MAKER = ParentPathLabelGenerator()
     var PATH_FILTER = BalancedPathFilter(RAND_NUM_GEN, ALLOWED_FORMATS, LABEL_GENERATOR_MAKER)
 
-    private const val EPOCH = 10 //5
+    private const val EPOCH = 5 //5
     private const val BATCH_SIZE = 16
     private const val TRAIN_SIZE = 85
     private const val NUM_POSSIBLE_LABELS = 2

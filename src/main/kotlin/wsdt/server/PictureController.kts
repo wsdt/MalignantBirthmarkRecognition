@@ -1,10 +1,8 @@
 
 import wsdt.ml.predict.BirthmarkType
 import wsdt.ml.predict.Predictor
-import wsdt.ml.train.Trainer
 import java.io.File
 import java.util.*
-import javax.json.Json
 import javax.servlet.annotation.WebServlet
 import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
@@ -18,13 +16,13 @@ class PictureController : HttpServlet() {
         val fileName = decodeImg(req.getParameter("image"))
         val birthmarkTypes:List<BirthmarkType> = Predictor.predict(fileName, this.servletContext.getRealPath("/WEB-INF/classes"))
 
-        val resultJson = "[${birthmarkTypes[0]},${birthmarkTypes[1]},${birthmarkTypes[2]},${birthmarkTypes[3]}]"
+        val resultJson = "[${birthmarkTypes[0]},${birthmarkTypes[1]},${birthmarkTypes[2]}]"
         res.writer.write(resultJson)
     }
 
     fun getRandomStr() : String {
         return (1..30)
-                .map { i -> kotlin.random.Random.nextInt(0, charPool.size) }
+                .map { kotlin.random.Random.nextInt(0, charPool.size) }
                 .map(charPool::get)
                 .joinToString("")
 
