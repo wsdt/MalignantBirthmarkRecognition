@@ -1,6 +1,6 @@
 # Malignant Birthmark Recognition 
 ## Backend
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://bitbucket.org/lbesson/ansi-colors) [![Generic badge](https://img.shields.io/badge/In-KOTLIN-ORANGE.svg)](https://www.java.com/) [![GitHub license](https://img.shields.io/github/license/wsdt/Python_Voice_Chatbot.svg)](https://github.com/wsdt/Python_Voice_Chatbot/blob/master/LICENSE) [![Generic badge](https://img.shields.io/badge/Docker-Compatible-blue.svg)](https://www.docker.com/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://bitbucket.org/lbesson/ansi-colors) [![Generic badge](https://img.shields.io/badge/In-KOTLIN-ORANGE.svg)](https://kotlinlang.org/) [![GitHub license](https://img.shields.io/github/license/wsdt/Python_Voice_Chatbot.svg)](https://github.com/wsdt/MalignantBirthmarkRecognition_Backend/blob/master/LICENSE) [![Generic badge](https://img.shields.io/badge/Docker-Compatible-blue.svg)](https://www.docker.com/)
 
 Kotlin Backend to serve user requests for [MalignantBirthmarkRecognition_Frontend](https://github.com/wsdt/malignantbirthmarkrecognition_frontend).
 
