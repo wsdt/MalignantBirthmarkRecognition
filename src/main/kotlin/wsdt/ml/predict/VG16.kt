@@ -12,9 +12,14 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
 
-
+/** Heart of the neural network. Performs training and prediction operations.
+ * Therefore, it is used by the Predictor and Trainer.
+ *
+ * This project uses DeepLearning4J and TransferLearning. Thus, it uses the VGG-16
+ * model from Oxford University. */
 class VG16 {
 
+    /** Classifies the picture uploaded from the user. */
     @Throws(IOException::class)
     fun detectType(file: File): INDArray {
         if (computationGraph == null) {
@@ -30,6 +35,8 @@ class VG16 {
         return computationGraph!!.outputSingle(false, image)
     }
 
+    /** After training it is evaluated via an own test set.
+     * Test set is located in /resources/test_both */
     @Throws(IOException::class)
     private fun runOnTestSet() {
         val computationGraph = loadModel()
@@ -40,24 +47,16 @@ class VG16 {
         Trainer.evalOn(computationGraph, dataSetIterator, 1)
     }
 
-    @Throws(IOException::class)
-    private fun runOnDevSet() {
-        val computationGraph = loadModel()
-        val trainData = File(Trainer.TRAIN_FOLDER)
-        val test = FileSplit(trainData, NativeImageLoader.ALLOWED_FORMATS, Trainer.RAND_NUM_GEN)
-        val inputSplit = test.sample(Trainer.PATH_FILTER, 15.0, 85.0)[0]
-        val dataSetIterator = Trainer.getDataSetIterator(inputSplit)
-        Trainer.evalOn(computationGraph, dataSetIterator, 1)
-    }
-
+    /** Loads model from file path system.
+     * @return ComputationGraph: Representation of already trained model*/
     @Throws(IOException::class)
     fun loadModel(): ComputationGraph {
         computationGraph = ModelSerializer.restoreComputationGraph(File(TRAINED_PATH_MODEL))
         return computationGraph as ComputationGraph
     }
 
+    /** Will run after training cycle to evaluate quality. */
     companion object {
-//        private val log = org.slf4j.LoggerFactory.getLogger(Trainer::class.java)
         private val TRAINED_PATH_MODEL = Trainer.DATA_PATH + "/saved/modelIteration_100_epoch_0.zip"
         private var computationGraph: ComputationGraph? = null
 
