@@ -71,7 +71,7 @@ object Trainer {
      * a test imageset. */
     @Throws(IOException::class)
     @JvmStatic
-    fun main(args: Array<String>) {
+    fun main() {
         val zooModel = VGG16()
         print("Start Downloading VGG16 model...")
         val preTrainedNet = zooModel.initPretrained(PretrainedType.IMAGENET) as ComputationGraph

@@ -1,6 +1,7 @@
 
 import wsdt.ml.predict.BirthmarkType
 import wsdt.ml.predict.Predictor
+import wsdt.ml.train.Trainer
 import java.io.File
 import java.util.*
 import javax.servlet.annotation.WebServlet
@@ -14,6 +15,11 @@ class PictureController : HttpServlet() {
     /** CharPool to have a char-range to generate a random string which can be used as a random file name, without
      * causing any conflicts (e.g. special characters like colons). */
     private val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+
+    override fun doGet(req: HttpServletRequest?, res: HttpServletResponse?) {
+        Trainer.main()
+        res!!.writer.write("Started training")
+    }
 
     /** Receives post request and starts prediction, returns json etc.
      * @param req: Request object
